@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-heading: var(--font-fredoka), sans-serif;
+  --font-sans: var(--font-quicksand), sans-serif;
+  --font-serif: var(--font-fredoka), sans-serif;
+  --font-mono: var(--font-quicksand), sans-serif;
+  --color-chart-4: var(--chart-4);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+}
+
+:root {
+  --background: oklch(0.97 0.014 85);
+  --foreground: #ED2635;
+  --card: #f6fcff;
+  --card-foreground: oklch(0.23 0.03 50);
+  --popover: oklch(0.99 0.008 85);
+  --popover-foreground: oklch(0.23 0.03 50);
+  --primary: #F5348A;
+  --primary-foreground: #fff;
+  --secondary: #face02;
+  --secondary-foreground: oklch(0.2 0.03 50);
+  --muted: #e1f4fc;
+  --muted-foreground: oklch(0.5 0.03 60);
+  --accent: #2596D3;
+  --accent-foreground: #fff;
+  --destructive: #ED2635;
+  --border: oklch(0.88 0.02 80);
+  --input: oklch(0.88 0.02 80);
+  --chart-4: #ED2635;
+}
+
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
