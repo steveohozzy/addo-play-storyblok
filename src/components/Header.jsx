@@ -12,14 +12,14 @@ export default function Header({ blok, menuItems = [] }) {
     <>
       <header
         {...storyblokEditable(blok)}
-        className="sticky top-0 z-50 border-b border-white/10 bg-primary/80 backdrop-blur-xl"
+        className="sticky top-0 z-50 border-b border-white/10 bg-accent backdrop-blur-xl"
       >
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex h-20 items-center justify-between">
             <Link href="/">
               <div className="relative flex h-18">
                 <Image
-                  src="https://www.addoplay.com/wp-content/uploads/2021/09/new_sized_addo.png"
+                  src="https://www.addoplay.com/wp-content/uploads/2025/04/AP_Licensing.png"
                   alt="ADDO"
                   width={300}
                   height={185}

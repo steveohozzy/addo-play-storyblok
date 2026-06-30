@@ -66,10 +66,10 @@ export default async function Footer() {
           <Image
             src={
               footer.logo?.filename ||
-              "https://www.addoplay.com/wp-content/uploads/2021/09/new_sized_addo.png"
+              "https://www.addoplay.com/wp-content/uploads/2025/04/AP_Licensing.png"
             }
             alt="ADDO"
-            width={180}
+            width={80}
             height={80}
             className="h-auto"
           />

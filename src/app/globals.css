@@ -32,13 +32,13 @@
   --card-foreground: oklch(0.23 0.03 50);
   --popover: oklch(0.99 0.008 85);
   --popover-foreground: oklch(0.23 0.03 50);
-  --primary: #F5348A;
+  --primary: #f5348a;
   --primary-foreground: #fff;
-  --secondary: #face02;
+  --secondary: #FF7300;
   --secondary-foreground: oklch(0.2 0.03 50);
-  --muted: #e1f4fc;
+  --muted: #ffd68b;
   --muted-foreground: oklch(0.5 0.03 60);
-  --accent: #2596D3;
+  --accent: #2491CC;
   --accent-foreground: #fff;
   --destructive: #ED2635;
   --border: oklch(0.88 0.02 80);

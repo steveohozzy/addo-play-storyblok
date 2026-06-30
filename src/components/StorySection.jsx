@@ -1,6 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 import { storyblokEditable } from "@storyblok/react/rsc";
 import { renderRichText } from "@storyblok/react";
+import { resolveLink } from "@/lib/storyblok";
 
 export default function StorySection({ blok }) {
   const callouts = blok.Callouts ?? [];
@@ -21,7 +23,7 @@ export default function StorySection({ blok }) {
             blok.Flip ? "order-1 lg:order-2" : "order-2 lg:order-1"
           }`}
         >
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-border shadow-lg sm:aspect-[3/4] lg:aspect-[4/5]">
+          <div className={`relative overflow-hidden rounded-[2rem] border border-border shadow-lg ${isVideo ? "aspect-[11/10] lg:aspect-[6/5]" : "aspect-[9/10] lg:aspect-[4/5]"}`}>
 
             {isVideo && videoId ? (
               <iframe
@@ -78,7 +80,7 @@ export default function StorySection({ blok }) {
           {/* Rich Text */}
           {blok.Blurb && (
             <div
-              className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground"
+              className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground [&_p]:mb-4 [&_p:last-child]:mb-0"
               dangerouslySetInnerHTML={{
                 __html: renderRichText(blok.Blurb),
               }}
@@ -107,6 +109,17 @@ export default function StorySection({ blok }) {
                 </li>
               ))}
             </ul>
+          )}
+
+          {blok.ctaText && (
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href={resolveLink(blok.CtaLink)}
+                className="rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"
+              >
+                {blok.ctaText}
+              </Link>
+            </div>
           )}
         </div>
       </div>

@@ -4,33 +4,26 @@ import { storyblokEditable } from "@storyblok/react/rsc";
 import { resolveLink } from "@/lib/storyblok";
 
 export default function HomeHero({ blok }) {
+  const isVideo = blok.Media === "video";
+  const videoId = blok.videoURL;
+
   return (
     <section
       {...storyblokEditable(blok)}
       id="top"
-      className="relative overflow-hidden bg-background"
+      className="relative overflow-hidden bg-muted"
     >
-      <div
-  className="pointer-events-none absolute -left-10 top-24 size-40 bg-accent/60"
-  style={{
-    WebkitMask:
-      "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 8 Q58 8 64 16 L88 74 Q92 84 84 90 Q76 96 66 90 L34 90 Q24 96 16 90 Q8 84 12 74 L36 16 Q42 8 50 8Z' fill='black'/%3E%3C/svg%3E\") center/contain no-repeat",
-    mask:
-      "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 8 Q58 8 64 16 L88 74 Q92 84 84 90 Q76 96 66 90 L34 90 Q24 96 16 90 Q8 84 12 74 L36 16 Q42 8 50 8Z' fill='black'/%3E%3C/svg%3E\") center/contain no-repeat",
-  }}
-  aria-hidden
-/>
 
-<div
-  className="pointer-events-none absolute right-10 top-10 size-24 bg-secondary/40 rotate-12"
-    style={{
-      WebkitMask:
-        "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 8 Q58 8 64 16 L88 74 Q92 84 84 90 Q76 96 66 90 L34 90 Q24 96 16 90 Q8 84 12 74 L36 16 Q42 8 50 8Z' fill='black'/%3E%3C/svg%3E\") center/contain no-repeat",
-      mask:
-        "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 8 Q58 8 64 16 L88 74 Q92 84 84 90 Q76 96 66 90 L34 90 Q24 96 16 90 Q8 84 12 74 L36 16 Q42 8 50 8Z' fill='black'/%3E%3C/svg%3E\") center/contain no-repeat",
-    }}
-    aria-hidden
-  />
+    <div
+      className="pointer-events-none absolute -left-10 top-84 size-40 rotate-45 rounded-3xl bg-primary/60"
+      aria-hidden
+    />
+
+    <div
+      className="pointer-events-none absolute right-10 top-10 size-24 rounded-2xl bg-secondary/40"
+      style={{ transform: 'rotate(57deg)' }} 
+      aria-hidden
+    />
 
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 pb-16 pt-10 md:px-8 lg:grid-cols-2 lg:gap-12 lg:pb-24 lg:pt-16">
         <div className="relative z-10">
@@ -87,23 +80,37 @@ export default function HomeHero({ blok }) {
         </div>
 
         <div className="relative z-10">
-          <div className="relative aspect-[9/10] overflow-hidden rounded-[2rem] border border-border shadow-xl lg:aspect-[4/5]">
-            <Image
-              src={
-                blok.BackgroundImage?.filename
-              }
-              alt={
-                blok.BackgroundImage?.alt ||
-                "Hero image"
-              }
-              fill
-              priority
-              quality={85}
-              sizes="(max-width:640px) 50vw,
-                     (max-width:1024px) 420px,
-                     420px"
-              className="object-cover"
-            />
+          <div className={`relative overflow-hidden rounded-[2rem] border border-border shadow-xl ${isVideo ? "aspect-[11/10] lg:aspect-[6/5]" : "aspect-[9/10] lg:aspect-[4/5]"}`}>
+
+            {isVideo && videoId ? (
+              <video
+                src={videoId}
+                autoPlay
+                loop
+                muted
+                controls
+                playsInline
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            ) : (
+              <Image
+                src={
+                  blok.BackgroundImage?.filename
+                }
+                alt={
+                  blok.BackgroundImage?.alt ||
+                  "Hero image"
+                }
+                fill
+                priority
+                quality={85}
+                sizes="(max-width:640px) 50vw,
+                      (max-width:1024px) 420px,
+                      420px"
+                className="object-cover"
+              />
+            )}
+            
           </div>
 
           {blok.ImageStampTitle && (
