@@ -53,7 +53,7 @@ export default function Header({ blok, menuItems = [] }) {
 
       {/* Drawer */}
       <aside
-        className={`fixed right-0 top-0 z-[60] flex h-screen w-full max-w-[420px] flex-col overflow-hidden bg-gradient-to-b from-pink-500 via-pink-600 to-fuchsia-900 shadow-[0_0_60px_rgba(245,52,138,0.35)] transition-transform duration-500 ease-out ${
+        className={`fixed right-0 top-0 z-[60] flex h-screen w-full max-w-[420px] flex-col overflow-hidden bg-gradient-to-b from-blue-500 via-bluenk-600 to-cyan-900 shadow-[0_0_60px_rgba(245,52,138,0.35)] transition-transform duration-500 ease-out ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >

@@ -27,15 +27,19 @@ export default function HomeHero({ blok }) {
 
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 pb-16 pt-10 md:px-8 lg:grid-cols-2 lg:gap-12 lg:pb-24 lg:pt-16">
         <div className="relative z-10">
+          {blok.Tagline &&
           <span className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-1.5 text-sm font-semibold text-accent-foreground">
             {blok.Tagline || "tagline"}
           </span>
+          }
 
           <h1 className="mt-6 text-balance font-heading text-5xl font-semibold leading-[0.95] tracking-tight text-foreground md:text-6xl lg:text-7xl">
             {blok.Title || "hero text"}{" "}
-            <span className="text-primary">
-              {blok.TitleAccent || "hero accent"}
-            </span>
+              {blok.TitleAccent &&
+              <span className="text-primary">
+                {blok.TitleAccent || "hero accent"}
+              </span>
+              }
           </h1>
 
           <p className="mt-6 max-w-md text-pretty text-lg leading-relaxed text-muted-foreground">

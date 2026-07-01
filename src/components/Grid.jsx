@@ -60,7 +60,7 @@ export default function Grid({ blok }) {
   return (
     <section
       {...storyblokEditable(blok)}
-      className="mx-auto max-w-7xl px-4 md:px-8"
+      className="mx-auto max-w-7xl px-4 md:px-8 py-8"
     >
       <div
         className={[

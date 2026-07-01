@@ -1,3 +1,4 @@
+// src/lib/storyblok.js
 import Page from "@/components/Page";
 import BlogPage from "@/components/BlogPage";
 import BlogPost from "@/components/BlogPost";
@@ -13,9 +14,39 @@ import RichText from "@/components/RichText";
 import Grid from "@/components/Grid";
 import Column from "@/components/Column";
 import HtmlBlock from "@/components/HTMLBlock";
+import Tabs from "@/components/Tabs";
+import TabItem from "@/components/TabItem";
 
-import { apiPlugin, storyblokInit } from "@storyblok/react/rsc";
+import { apiPlugin, storyblokInit } from "@storyblok/react";
 
+export const components = {
+  page: Page,
+  homepageHero: HomepageHero,
+  storySection: StorySection,
+  Marquee: Marquee,
+  panelsSet: PanelsSet,
+  blogSection: Blog,
+  newsletter: Newsletter,
+  RichText: RichText, 
+  Grid: Grid,
+  column: Column,
+  htmlBlock: HtmlBlock,
+  blogPage: BlogPage,
+  blogPost: BlogPost,
+  brandsHub: BrandsHub,
+  brandSection: BrandSection,
+  Tabs: Tabs,
+  "Tab Item": TabItem,
+};
+
+export const getStoryblokApi = storyblokInit({
+  accessToken: process.env.NEXT_PUBLIC_STORYBLOK_DELIVERY_API_TOKEN || process.env.STORYBLOK_DELIVERY_API_TOKEN,
+  use: [apiPlugin],
+  components,
+  apiOptions: {
+    region: "eu",
+  },
+});
 
 export function resolveLink(link) {
   if (!link) return "/";
@@ -26,31 +57,3 @@ export function resolveLink(link) {
 
   return link.url || "/";
 }
-
-export const getStoryblokApi = storyblokInit({
-  accessToken: process.env.STORYBLOK_DELIVERY_API_TOKEN,
-
-  use: [apiPlugin],
-
-  components: {
-    page: Page,
-    homepageHero: HomepageHero,
-    storySection: StorySection,
-    Marquee: Marquee,
-    panelsSet: PanelsSet,
-    blogSection: Blog,
-    newsletter: Newsletter,
-    RichText: RichText,
-    Grid: Grid,
-    column: Column,
-    htmlBlock: HtmlBlock,
-    blogPage: BlogPage,
-    blogPost: BlogPost,
-    brandsHub: BrandsHub,
-    brandSection: BrandSection,
-  },
-
-  apiOptions: {
-    region: "eu",
-  },
-});

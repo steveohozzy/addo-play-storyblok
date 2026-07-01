@@ -21,23 +21,29 @@ export default function PanelsSet({
     >
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <div className="mx-auto max-w-2xl text-center">
+          {blok.Tagline &&
           <span className="text-sm font-semibold uppercase tracking-widest text-primary">
             {blok.Tagline ||
               "Why play matters"}
           </span>
+          }
 
+          {blok.Title &&
           <h2 className="mt-3 text-balance font-heading text-4xl font-semibold leading-tight text-foreground md:text-5xl">
             {blok.Title ||
               "Play isn't a break from learning. It is learning."}
           </h2>
+          }
 
+          {blok.IntroBlurb &&
           <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
             {blok.IntroBlurb ||
               "Every game, every giggle, every tower that tumbles down."}
           </p>
+          }
         </div>
 
-        <div className="mt-12 grid gap-4 lg:grid-cols-3">
+        <div className={`${blok.Tagline || blok.Title || blok.IntroBlurb ? "mt-12" : ""} grid gap-12 md:grid-cols-2 lg:grid-cols-3`}>
           {panels.map((p, i) => {
             const isActive =
               active === i;
@@ -65,8 +71,10 @@ export default function PanelsSet({
                     : "border-border bg-card/60 hover:bg-card"
                 }`}
               >
+                {p.ImageMain
+                    ?.filename && (
                 <span
-                  className={`flex size-12 items-center justify-center rounded-2xl p-2 ${
+                  className={`flex size-12 items-center justify-center rounded-2xl p-2 mb-5 ${
                     i === 0
                       ? "bg-secondary"
                       : i === 1
@@ -76,8 +84,6 @@ export default function PanelsSet({
                       : "bg-chart-4"
                   }`}
                 >
-                  {p.ImageMain
-                    ?.filename && (
                     <Image
                       src={
                         p.ImageMain
@@ -91,10 +97,11 @@ export default function PanelsSet({
                       height={60}
                       className="object-cover"
                     />
-                  )}
+                  
                 </span>
+                )}
 
-                <div className="mt-5 font-heading text-xl font-semibold text-foreground">
+                <div className="font-heading text-xl font-semibold text-foreground">
                   {p.Title}
                 </div>
 

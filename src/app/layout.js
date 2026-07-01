@@ -1,3 +1,5 @@
+import StoryblokInitializer from "@/components/StorybkokInitializer";
+
 import { Fredoka, Quicksand } from 'next/font/google';
 import "./globals.css";
 
@@ -32,7 +34,9 @@ export default async function RootLayout({ children }) {
         <Header menuItems={menuItems} />
 
         <main className="flex-1">
+          <StoryblokInitializer>
           {children}
+          </StoryblokInitializer>
         </main>
 
         <Footer />
