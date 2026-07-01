@@ -27,18 +27,18 @@
 
 :root {
   --background: oklch(0.97 0.014 85);
-  --foreground: #ED2635;
+  --foreground: #ee0f22;
   --card: #f6fcff;
   --card-foreground: oklch(0.23 0.03 50);
   --popover: oklch(0.99 0.008 85);
   --popover-foreground: oklch(0.23 0.03 50);
-  --primary: #f5348a;
+  --primary: #ff0073;
   --primary-foreground: #fff;
   --secondary: #FF7300;
   --secondary-foreground: oklch(0.2 0.03 50);
   --muted: #ffcd8b;
   --muted-foreground: oklch(0.5 0.03 60);
-  --accent: #2491CC;
+  --accent: #0b9fee;
   --accent-foreground: #fff;
   --destructive: #ED2635;
   --border: oklch(0.88 0.02 80);
