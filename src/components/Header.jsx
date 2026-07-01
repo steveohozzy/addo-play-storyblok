@@ -62,7 +62,7 @@ export default function Header({ blok, menuItems = [] }) {
             <p className="mb-2 text-xs uppercase tracking-[0.35em] text-white/60">
               Explore
             </p>
-            <h2 className="font-fraunces text-3xl text-white">ADDO</h2>
+            <h2 className="font-fraunces text-3xl text-white">ADDO Play</h2>
           </div>
 
           <button
@@ -115,7 +115,7 @@ export default function Header({ blok, menuItems = [] }) {
             <Link
               href="/blog"
               onClick={() => setOpen(false)}
-              className="inline-flex items-center gap-2 rounded-full bg-secondary px-5 py-3 text-sm font-semibold text-foreground hover:scale-105"
+              className="inline-flex items-center gap-2 rounded-full bg-secondary px-5 py-3 text-sm font-semibold text-muted hover:scale-105"
             >
               Start Exploring →
             </Link>

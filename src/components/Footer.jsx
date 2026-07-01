@@ -10,6 +10,7 @@ import {
 import InstagramIcon from "./icons/InstagramIcon";
 import FacebookIcon from "./icons/FacebookIcon";
 import YoutubeIcon from "./icons/YouTubeIcon";
+import LinkedInIcon from "./icons/LinkedInIcon";
 
 export default async function Footer() {
   const menuItems =
@@ -34,26 +35,34 @@ export default async function Footer() {
   const socials = [
     {
       name: "Instagram",
-      url: resolveLink(
-        footer.socialInstagram
-      ),
+      link: footer.socialInstagram,
       icon: <InstagramIcon />,
     },
     {
       name: "Facebook",
-      url: resolveLink(
-        footer.socialFacebook
-      ),
+      link: footer.socialFacebook,
       icon: <FacebookIcon />,
     },
     {
       name: "YouTube",
-      url: resolveLink(
-        footer.socialYoutube
-      ),
+      link: footer.socialYoutube,
       icon: <YoutubeIcon />,
     },
-  ].filter((social) => social.url);
+    {
+      name: "LinkedIn",
+      link: footer.socialLinkedIn,
+      icon: <LinkedInIcon />,
+    },
+  ]
+    .filter(
+      (social) =>
+        social.link?.cached_url ||
+        social.link?.url
+    )
+    .map((social) => ({
+      ...social,
+      url: resolveLink(social.link),
+    }));
 
   return (
     <footer className="mt-auto overflow-hidden border-t border-border bg-muted">
