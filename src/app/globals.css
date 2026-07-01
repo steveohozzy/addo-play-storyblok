@@ -27,23 +27,23 @@
 
 :root {
   --background: oklch(0.97 0.014 85);
-  --foreground: #ED2635;
+  --foreground: #b43540;
   --card: #f6fcff;
   --card-foreground: oklch(0.23 0.03 50);
   --popover: oklch(0.99 0.008 85);
   --popover-foreground: oklch(0.23 0.03 50);
-  --primary: #f5348a;
+  --primary: #d13079;
   --primary-foreground: #fff;
   --secondary: #FF7300;
   --secondary-foreground: oklch(0.2 0.03 50);
-  --muted: #ffd68b;
+  --muted: #f3d7a2;
   --muted-foreground: oklch(0.5 0.03 60);
-  --accent: #2491CC;
+  --accent: #1c73a1;
   --accent-foreground: #fff;
-  --destructive: #ED2635;
+  --destructive: #b33640;
   --border: oklch(0.88 0.02 80);
   --input: oklch(0.88 0.02 80);
-  --chart-4: #ED2635;
+  --chart-4: #b6212e;
 }
 
 @keyframes marquee {
